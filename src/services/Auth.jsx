@@ -21,9 +21,21 @@ export const fetchLoggedUser = async (userId) => {
     return await response.json()
 }
 
-export default function PrivateRoute({ children }) {
+export default function PrivateRoute({ children, requiredRole }) {
     if (!isAuthenticated()) {
         return <Navigate to="/login" replace />
+    }
+
+    const usuario = getLoggedUser()
+    console.log(usuario.role);
+    
+
+    if (requiredRole && usuario.role !== requiredRole){
+        if (usuario.role == "admin"){
+            return <Navigate to="/admin" replace />
+        }else{
+            return <Navigate to="/" replace />
+        }
     }
 
     return children

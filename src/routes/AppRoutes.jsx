@@ -2,15 +2,14 @@ import { createBrowserRouter } from "react-router-dom"
 import Layout from "../pages/Layout"
 import PaginaNaoEncontrada from "../pages/PaginaNaoEncontrada"
 import Home from "../pages/Home"
-import Cadastro from "../pages/Cadastro"
 import PrivateRoute from "../services/Auth"
-import Eventos from "../pages/Eventos"
 import Perfil from "../pages/Perfil"
 import Mapa from "../pages/Mapa"
 import AdminLayout from "../pages/AdminLayout"
 import AdminDashboard from "../pages/AdminDashboard"
 import AdminCadastro from "../pages/AdminCadastro"
 import LoginRegister from "../pages/LoginRegister"
+import Encontro from "../pages/Encontro"
 
 export const router = createBrowserRouter([
     {
@@ -27,24 +26,20 @@ export const router = createBrowserRouter([
                 element: <LoginRegister />
             },
             {
-                path: "cadastro",
-                element: <Cadastro />
-            },
-            {
-                path: "evento",
-                element: <PrivateRoute>
-                    <Eventos />
+                path: "encontro",
+                element: <PrivateRoute requiredRole="user">
+                    <Encontro />
                 </PrivateRoute>
             },
             {
                 path: "perfil",
-                element: <PrivateRoute>
+                element: <PrivateRoute requiredRole="user">
                     <Perfil />
                 </PrivateRoute>
             },
             {
                 path: "mapa",
-                element: <PrivateRoute>
+                element: <PrivateRoute requiredRole="user">
                     <Mapa />
                 </PrivateRoute>
             },
@@ -57,13 +52,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <PrivateRoute>
+                element: <PrivateRoute requiredRole="admin">
                     <AdminDashboard />
                 </PrivateRoute>
             },
             {
                 path: "/admin/evento",
-                element: <PrivateRoute>
+                element: <PrivateRoute requiredRole="admin">
                     <AdminCadastro />
                 </PrivateRoute>
             }

@@ -5,7 +5,7 @@ import { formatDate } from "../utils/DataFormato"
 import { MapPin, Calendar } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 
-export default function Eventos() {
+export default function Encontro() {
 
     const [encontros, setEncontros] = useState([])
     const [selectedEncontro, setSelectedEncontro] = useState(null)
