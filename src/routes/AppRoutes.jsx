@@ -2,12 +2,15 @@ import { createBrowserRouter } from "react-router-dom"
 import Layout from "../pages/Layout"
 import PaginaNaoEncontrada from "../pages/PaginaNaoEncontrada"
 import Home from "../pages/Home"
-import Login from "../pages/Login"
 import Cadastro from "../pages/Cadastro"
 import PrivateRoute from "../services/Auth"
 import Eventos from "../pages/Eventos"
 import Perfil from "../pages/Perfil"
 import Mapa from "../pages/Mapa"
+import AdminLayout from "../pages/AdminLayout"
+import AdminDashboard from "../pages/AdminDashboard"
+import AdminCadastro from "../pages/AdminCadastro"
+import LoginRegister from "../pages/LoginRegister"
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "login",
-                element: <Login />
+                element: <LoginRegister />
             },
             {
                 path: "cadastro",
@@ -48,4 +51,22 @@ export const router = createBrowserRouter([
 
         ]
     },
+    {
+        path: "/admin",
+        element: <AdminLayout />,
+        children: [
+            {
+                index: true,
+                element: <PrivateRoute>
+                    <AdminDashboard />
+                </PrivateRoute>
+            },
+            {
+                path: "/admin/evento",
+                element: <PrivateRoute>
+                    <AdminCadastro />
+                </PrivateRoute>
+            }
+        ]
+    }
 ])
