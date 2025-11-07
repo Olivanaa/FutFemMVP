@@ -35,7 +35,7 @@ export default function AdminCadastro() {
     const [cepErro, setCepErro] = useState("")
 
     const [center, setCenter] = useState([-23.5505, -46.6333])
-    const [coordenadas, setCoordenadas] = useState(null)
+    const [coordenadas, setCoordenadas] = useState("")
 
     const [buscarNoMapa, setBuscarNoMapa] = useState(false)
 
@@ -68,6 +68,10 @@ export default function AdminCadastro() {
             setMensagemErro("Por favor, preencha todos os campos obrigatórios")
             return
         }
+        if(!coordenadas){
+            setMensagemErro("Por favor, busque o local no mapa")
+            return
+        }
         setMensagemErro("")
 
         const evento = {
@@ -82,9 +86,9 @@ export default function AdminCadastro() {
                 bairro: bairro,
                 cidade: cidade,
                 estado: estado,
-                pos: coordenadas ? [coordenadas[0], coordenadas[1]] : null
+                pos: [coordenadas[0], coordenadas[1]] 
             },
-            tipo: "eventoPlataforma",
+            tipo: "evento",
             vagas: vagas,
             ocupadas: 0,
             descricao: descricao,

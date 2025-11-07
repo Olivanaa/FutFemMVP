@@ -118,7 +118,7 @@ export default function Mapa() {
         const matchBusca = l.nome.toLowerCase().includes(busca.toLowerCase())
         const matchTipo = tipo === "Todos" || l.tipo?.toLowerCase() === tipo.toLowerCase()
 
-        if (l.tipo === "eventoPlataforma") {
+        if (l.tipo === "evento") {
             if (faixaEtaria !== "Todas" || custo !== "Todos" || nivel !== "Todos") {
                 return false
             }
