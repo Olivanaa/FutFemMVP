@@ -75,7 +75,6 @@ A aplicação utiliza **JSON Server** como backend simulado. A seguir, os princi
 | GET    | `/eventos/:id`     | Retorna um evento específico |
 | POST   | `/eventos`         | Cadastra um novo evento |
 | PUT    | `/eventos/:id`     | Atualiza um evento (vagas, inscritos, histórico) |
-| DELETE | `/eventos/:id`     | Remove um evento |
 
 ### Locais (`/locais`)
 
@@ -83,6 +82,18 @@ A aplicação utiliza **JSON Server** como backend simulado. A seguir, os princi
 |--------|--------------------|-----------|
 | GET    | `/locais`          | Retorna todos os pontos de acesso (quadras, escolinhas, clubes, academias, eventos) |
 | GET    | `/locais/:id`      | Retorna um ponto de acesso específico |
+
+## 👥 Usuárias para Teste
+
+Para facilitar a exploração da plataforma, seguem algumas usuárias de teste:
+
+| Email             | Senha    | Role       |
+|-------------------|----------|------------|
+| bere@example.com  | 123      | admin      |
+| pam@example.com   | 123      | user       |
+| m@email.com       | 123      | user       | 
+
+> **Observação:** Estes usuários estão cadastrados apenas na base de teste (JSON Server) e podem ser utilizados para explorar todas as funcionalidades da plataforma.
 
 
 ## 🔍 Observações
